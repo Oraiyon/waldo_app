@@ -34,7 +34,7 @@ const Home = () => {
     );
   }
 
-  const getCoordinates = (e) => {
+  const findWaldo = (e) => {
     const { width, height } = e.target.getBoundingClientRect();
     const x = Math.round((e.nativeEvent.offsetX / width) * 100);
     const y = Math.round((e.nativeEvent.offsetY / height) * 100);
@@ -55,7 +55,7 @@ const Home = () => {
   return (
     <>
       <h1>Level {level + 1}</h1>
-      <img src={selectedImage.url} alt={selectedImage.name} onClick={getCoordinates} />
+      <img src={selectedImage.url} alt={selectedImage.name} onClick={findWaldo} />
     </>
   );
 };
