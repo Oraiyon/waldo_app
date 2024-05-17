@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../stylesheets/Form.css";
 
 const Form = () => {
@@ -42,6 +43,7 @@ const Form = () => {
 
   return (
     <>
+      <Link to="/">Home</Link>
       <h1>Upload Image</h1>
       <form action="" method="post" encType="multipart/form-data">
         <label htmlFor="name">Name:</label>
