@@ -36,7 +36,7 @@ exports.post_image = [
     const image = new Image({
       name: req.body.name,
       url: "",
-      coordinates: [req.body.top_left.split(", "), req.body.bottom_right.split(", ")]
+      coordinates: [req.body.top_left.split(","), req.body.bottom_right.split(",")]
     });
     if (!errors.isEmpty() || duplicateImage) {
       res.redirect("/form");
