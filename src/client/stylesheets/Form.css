@@ -2,4 +2,15 @@ form {
   display: grid;
   grid-template-columns: max-content 0.5fr;
   gap: 4px;
+  justify-items: start;
+}
+
+form div {
+  display: flex;
+  gap: 4px;
+  width: 83px;
+}
+
+input[type="text"] {
+  width: 100%;
 }
