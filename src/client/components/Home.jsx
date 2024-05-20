@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../stylesheets/Home.css";
 import Replay from "./Replay";
+import Timer from "./Timer";
 
 const Home = () => {
   const [backendData, setBackendData] = useState(null);
@@ -51,7 +52,7 @@ const Home = () => {
 
   return (
     <>
-      <h1>Level {level + 1}</h1>
+      <Timer level={level} />
       <img src={selectedImage.url} alt={selectedImage.name} onClick={findWaldo} />
     </>
   );
