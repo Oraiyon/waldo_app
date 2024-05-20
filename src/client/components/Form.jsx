@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../stylesheets/Form.css";
 
@@ -19,11 +19,9 @@ const Form = () => {
     const topLeftInput = document.getElementById("top_left");
     const bottomRightInput = document.getElementById("bottom_right");
     if (topLeftInput.checked) {
-      console.log(`${x}, ${y}`);
       const newArray = [[x, y], coordinates[1]];
       setCoordinates(newArray);
     } else if (bottomRightInput.checked) {
-      console.log(`${x}, ${y}`);
       const newArray = [coordinates[0], [x, y]];
       setCoordinates(newArray);
     } else {
@@ -49,10 +47,10 @@ const Form = () => {
         <label htmlFor="name">Name:</label>
         <input type="text" name="name" />
         <label htmlFor="image">Image:</label>
-        <input type="file" name="image" onChange={showPreview} />
+        <input type="file" name="image" onChange={showPreview} required />
         <label htmlFor="top_left">Top Left: </label>
         <div>
-          <input type="radio" id="top_left" name="coordinate" />
+          <input type="radio" id="top_left" name="coordinate" defaultChecked={true} />
           <input
             type="text"
             name="top_left"
