@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../stylesheets/Home.css";
+import Replay from "./Replay";
 
 const Home = () => {
   const [backendData, setBackendData] = useState(null);
@@ -20,17 +21,14 @@ const Home = () => {
     return <p>No Images</p>;
   }
 
-  const replay = () => {
-    setSelectedImage((s) => backendData[0]);
-    setLevel((l) => 0);
-  };
-
   if (!selectedImage) {
     return (
-      <>
-        <h1>Congratulations!</h1>
-        <button onClick={replay}>Play Again?</button>
-      </>
+      <Replay
+        backendData={backendData}
+        selectedImage={selectedImage}
+        setSelectedImage={setSelectedImage}
+        setLevel={setLevel}
+      />
     );
   }
 
@@ -44,7 +42,6 @@ const Home = () => {
       x <= selectedImage.coordinates[1][0] &&
       y <= selectedImage.coordinates[1][1]
     ) {
-      console.log(`FOUND WALDO at ${x}, ${y}`);
       setSelectedImage((s) => backendData[level + 1]);
       setLevel((l) => l + 1);
     } else {
