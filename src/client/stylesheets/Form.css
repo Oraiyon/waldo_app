@@ -13,5 +13,8 @@ form div {
 
 input[type="text"] {
   width: 100%;
-  max-width: 500px;
+}
+
+input[name="name"] {
+  min-width: 170px;
 }
