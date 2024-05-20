@@ -7,11 +7,3 @@
 body {
   height: 100vh;
 }
-
-#root {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
