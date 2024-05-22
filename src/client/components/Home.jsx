@@ -76,7 +76,7 @@ const Home = () => {
       />
       <div>
         <img src={selectedImage.url} alt={selectedImage.name} onClick={findWaldo} />
-        <div className="modal" style={{ display: "none" }}>
+        <div className="modal">
           <button onClick={goToNextLevel}>Continue</button>
         </div>
       </div>
