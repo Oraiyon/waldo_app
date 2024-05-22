@@ -2,11 +2,9 @@ import { useEffect, useState } from "react";
 import "../stylesheets/Timer.css";
 
 const Timer = (props) => {
-  const [time, setTime] = useState(0);
-
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime((t) => t + 1);
+      props.setTime((t) => t + 1);
     }, 1000);
 
     return () => {
@@ -15,27 +13,22 @@ const Timer = (props) => {
   }, []);
 
   const Watch = () => {
-    if (time < 60) {
-      return <p>Time: 00:{time < 10 ? "0" + time : time}</p>;
+    if (props.time < 60) {
+      return <p>Time: 00:{props.time < 10 ? "0" + props.time : props.time}</p>;
     } else {
       return (
         <p>
           Time:{" "}
-          {Math.floor((time % 3600) / 60) < 10
-            ? "0" + Math.floor((time % 3600) / 60)
-            : Math.floor((time % 3600) / 60)}
-          :{time % 60 < 10 ? "0" + (time % 60) : time % 60}
+          {Math.floor((props.time % 3600) / 60) < 10
+            ? "0" + Math.floor((props.time % 3600) / 60)
+            : Math.floor((props.time % 3600) / 60)}
+          :{props.time % 60 < 10 ? "0" + (props.time % 60) : props.time % 60}
         </p>
       );
     }
   };
 
-  return (
-    <header>
-      <h1>Level {props.level + 1}</h1>
-      <Watch />
-    </header>
-  );
+  return <Watch />;
 };
 
 export default Timer;

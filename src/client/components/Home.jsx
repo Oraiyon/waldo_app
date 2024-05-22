@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import "../stylesheets/Home.css";
 import Replay from "./Replay";
-import Timer from "./Timer";
+import Header from "./Header";
 
 const Home = () => {
   const [backendData, setBackendData] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [level, setLevel] = useState(0);
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/image")
@@ -45,6 +46,7 @@ const Home = () => {
     ) {
       setSelectedImage((s) => backendData[level + 1]);
       setLevel((l) => l + 1);
+      setTime((t) => 0);
     } else {
       console.log(`${x}, ${y}`);
     }
@@ -52,7 +54,7 @@ const Home = () => {
 
   return (
     <>
-      <Timer level={level} />
+      <Header level={level} time={time} setTime={setTime} />
       <img src={selectedImage.url} alt={selectedImage.name} onClick={findWaldo} />
     </>
   );
