@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../stylesheets/Timer.css";
 
 const Timer = (props) => {
-  const [time, setTime] = useState(55);
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -16,7 +16,7 @@ const Timer = (props) => {
 
   const Watch = () => {
     if (time < 60) {
-      return <p>Time: 00:{time}</p>;
+      return <p>Time: 00:{time < 10 ? "0" + time : time}</p>;
     } else {
       return (
         <p>
