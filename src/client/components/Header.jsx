@@ -1,4 +1,3 @@
-import Timer from "./Timer";
 import TimeKeeper from "./TimeKeeper";
 import { useEffect } from "react";
 import "../stylesheets/Header.css";
