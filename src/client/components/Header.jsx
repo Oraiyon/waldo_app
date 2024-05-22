@@ -5,14 +5,19 @@ import "../stylesheets/Header.css";
 
 const Header = (props) => {
   useEffect(() => {
-    const interval = setInterval(() => {
-      props.setTime((t) => t + 1);
-    }, 1000);
+    let interval;
+    if (props.running) {
+      interval = setInterval(() => {
+        props.setTime((t) => t + 1);
+      }, 1000);
 
-    return () => {
+      return () => {
+        clearInterval(interval);
+      };
+    } else {
       clearInterval(interval);
-    };
-  }, []);
+    }
+  }, [props.running]);
 
   return (
     <header>

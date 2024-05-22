@@ -9,6 +9,9 @@ const Home = () => {
   const [level, setLevel] = useState(0);
   const [time, setTime] = useState(0);
   const [record, setRecord] = useState([]);
+  const [running, setRunning] = useState(true);
+
+  const modal = document.querySelector(".modal");
 
   useEffect(() => {
     fetch("http://localhost:3000/api/image")
@@ -46,19 +49,37 @@ const Home = () => {
       x <= selectedImage.coordinates[1][0] &&
       y <= selectedImage.coordinates[1][1]
     ) {
-      setSelectedImage((s) => backendData[level + 1]);
-      setLevel((l) => l + 1);
       setRecord((r) => [...r, time]);
-      setTime((t) => 0);
+      setRunning(false);
+      modal.style.display = "block";
     } else {
       console.log(`${x}, ${y}`);
     }
   };
 
+  const goToNextLevel = () => {
+    setSelectedImage((s) => backendData[level + 1]);
+    setLevel((l) => l + 1);
+    setTime((t) => 0);
+    setRunning(true);
+    modal.style.display = "none";
+  };
+
   return (
     <>
-      <Header level={level} time={time} setTime={setTime} />
-      <img src={selectedImage.url} alt={selectedImage.name} onClick={findWaldo} />
+      <Header
+        level={level}
+        time={time}
+        setTime={setTime}
+        running={running}
+        setRunning={setRunning}
+      />
+      <div>
+        <img src={selectedImage.url} alt={selectedImage.name} onClick={findWaldo} />
+        <div className="modal" style={{ display: "none" }}>
+          <button onClick={goToNextLevel}>Continue</button>
+        </div>
+      </div>
     </>
   );
 };
