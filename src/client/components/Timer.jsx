@@ -13,13 +13,27 @@ const Timer = (props) => {
       clearInterval(interval);
     };
   }, []);
-  // Fix timer
+
+  const Watch = () => {
+    if (time < 60) {
+      return <p>Time: 00:{time}</p>;
+    } else {
+      return (
+        <p>
+          Time:{" "}
+          {Math.floor((time % 3600) / 60) < 10
+            ? "0" + Math.floor((time % 3600) / 60)
+            : Math.floor((time % 3600) / 60)}
+          :{time % 60 < 10 ? "0" + (time % 60) : time % 60}
+        </p>
+      );
+    }
+  };
+
   return (
     <header>
       <h1>Level {props.level + 1}</h1>
-      <p>
-        Time: {time <= 60 ? "00:" + time : "0" + Math.floor((time % 3600) / 60) + ":" + (time % 60)}
-      </p>
+      <Watch />
     </header>
   );
 };
