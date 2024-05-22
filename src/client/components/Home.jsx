@@ -67,13 +67,7 @@ const Home = () => {
 
   return (
     <>
-      <Header
-        level={level}
-        time={time}
-        setTime={setTime}
-        running={running}
-        setRunning={setRunning}
-      />
+      <Header level={level} time={time} setTime={setTime} running={running} />
       <div>
         <img src={selectedImage.url} alt={selectedImage.name} onClick={findWaldo} />
         <div className="modal">
