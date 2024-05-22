@@ -5,7 +5,10 @@ const Header = (props) => {
   return (
     <header>
       <h1>Level {props.level + 1}</h1>
-      <Timer time={props.time} setTime={props.setTime} />
+      <div>
+        <p>Time:</p>
+        <Timer time={props.time} setTime={props.setTime} />
+      </div>
     </header>
   );
 };

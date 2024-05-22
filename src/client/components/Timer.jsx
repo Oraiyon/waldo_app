@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../stylesheets/Timer.css";
+import TimeKeeper from "./TimeKeeper";
 
 const Timer = (props) => {
   useEffect(() => {
@@ -12,23 +13,7 @@ const Timer = (props) => {
     };
   }, []);
 
-  const Watch = () => {
-    if (props.time < 60) {
-      return <p>Time: 00:{props.time < 10 ? "0" + props.time : props.time}</p>;
-    } else {
-      return (
-        <p>
-          Time:{" "}
-          {Math.floor((props.time % 3600) / 60) < 10
-            ? "0" + Math.floor((props.time % 3600) / 60)
-            : Math.floor((props.time % 3600) / 60)}
-          :{props.time % 60 < 10 ? "0" + (props.time % 60) : props.time % 60}
-        </p>
-      );
-    }
-  };
-
-  return <Watch />;
+  return <TimeKeeper time={props.time} />;
 };
 
 export default Timer;

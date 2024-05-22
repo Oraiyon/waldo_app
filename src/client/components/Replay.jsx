@@ -1,4 +1,5 @@
 import "../stylesheets/Replay.css";
+import TimeKeeper from "./TimeKeeper";
 
 const Replay = (props) => {
   const replayGame = () => {
@@ -13,7 +14,7 @@ const Replay = (props) => {
       {props.record.map((record, index) => (
         <div key={index}>
           <p>Level {index + 1}- </p>
-          <p>{record}</p>
+          <TimeKeeper time={record} />
         </div>
       ))}
     </div>
