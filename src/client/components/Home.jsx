@@ -31,6 +31,7 @@ const Home = () => {
         setSelectedImage={setSelectedImage}
         setLevel={setLevel}
         record={record}
+        setRecord={setRecord}
       />
     );
   }

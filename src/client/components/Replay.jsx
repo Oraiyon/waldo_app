@@ -5,6 +5,7 @@ const Replay = (props) => {
   const replayGame = () => {
     props.setSelectedImage((s) => props.backendData[0]);
     props.setLevel((l) => 0);
+    props.setRecord([]);
   };
 
   return (
