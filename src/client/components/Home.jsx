@@ -30,7 +30,6 @@ const Home = () => {
         backendData={backendData}
         setSelectedImage={setSelectedImage}
         setLevel={setLevel}
-        level={level}
         record={record}
       />
     );
