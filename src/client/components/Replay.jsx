@@ -6,14 +6,18 @@ const Replay = (props) => {
     props.setLevel((l) => 0);
   };
 
-  if (!props.selectedImage) {
-    return (
-      <div className="replay">
-        <h1>Congratulations!</h1>
-        <button onClick={replayGame}>Play Again?</button>
-      </div>
-    );
-  }
+  return (
+    <div className="replay">
+      <h1>Congratulations!</h1>
+      <button onClick={replayGame}>Play Again?</button>
+      {props.record.map((record, index) => (
+        <div key={index}>
+          <p>Level {index + 1}- </p>
+          <p>{record}</p>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Replay;

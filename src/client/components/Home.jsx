@@ -8,6 +8,7 @@ const Home = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [level, setLevel] = useState(0);
   const [time, setTime] = useState(0);
+  const [record, setRecord] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/image")
@@ -27,9 +28,10 @@ const Home = () => {
     return (
       <Replay
         backendData={backendData}
-        selectedImage={selectedImage}
         setSelectedImage={setSelectedImage}
         setLevel={setLevel}
+        level={level}
+        record={record}
       />
     );
   }
@@ -46,6 +48,7 @@ const Home = () => {
     ) {
       setSelectedImage((s) => backendData[level + 1]);
       setLevel((l) => l + 1);
+      setRecord((r) => [...r, time]);
       setTime((t) => 0);
     } else {
       console.log(`${x}, ${y}`);
