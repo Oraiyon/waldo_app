@@ -13,6 +13,7 @@ const Home = () => {
   const [running, setRunning] = useState(true);
 
   const modal = document.querySelector(".modal");
+  const waldo = document.querySelector(".waldo");
 
   useEffect(() => {
     fetch("http://localhost:3000/api/image")
@@ -52,7 +53,8 @@ const Home = () => {
     ) {
       setRecord((r) => [...r, time]);
       setRunning(false);
-      modal.style.display = "block";
+      modal.style.display = "flex";
+      waldo.classList.toggle("inactive");
     } else {
       console.log(`${x}, ${y}`);
     }
@@ -61,14 +63,21 @@ const Home = () => {
   return (
     <>
       <Header level={level} time={time} setTime={setTime} running={running} />
-      <div>
-        <img src={selectedImage.url} alt={selectedImage.name} onClick={findWaldo} />
+      <div className="main">
+        <img
+          className="waldo"
+          src={selectedImage.url}
+          alt={selectedImage.name}
+          onClick={findWaldo}
+        />
         <Modal
           modal={modal}
+          waldo={waldo}
           backendData={backendData}
           setSelectedImage={setSelectedImage}
           level={level}
           setLevel={setLevel}
+          time={time}
           setTime={setTime}
           setRunning={setRunning}
         />

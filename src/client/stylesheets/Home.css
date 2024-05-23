@@ -2,3 +2,12 @@ img {
   width: 100%;
   align-self: center;
 }
+
+.main {
+  position: relative;
+}
+
+.inactive {
+  pointer-events: none;
+  filter: brightness(50%);
+}
