@@ -3,6 +3,7 @@ import "../stylesheets/Home.css";
 import Replay from "./Replay";
 import Header from "./Header";
 import Modal from "./Modal";
+import StartScreen from "./StartScreen";
 
 const Home = () => {
   const [backendData, setBackendData] = useState(null);
@@ -61,11 +62,6 @@ const Home = () => {
     }
   };
 
-  const start = () => {
-    setStartGame(true);
-    setTimerRunning(true);
-  };
-
   if (startGame) {
     return (
       <>
@@ -92,13 +88,7 @@ const Home = () => {
       </>
     );
   } else {
-    // Turn into component?
-    return (
-      <>
-        <h1>Where's Waldo?</h1>
-        <button onClick={start}>Start Game</button>
-      </>
-    );
+    return <StartScreen setStartGame={setStartGame} setTimerRunning={setTimerRunning} />;
   }
 };
 
