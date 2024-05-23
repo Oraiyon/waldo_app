@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../stylesheets/Home.css";
 import Replay from "./Replay";
 import Header from "./Header";
+import Modal from "./Modal";
 
 const Home = () => {
   const [backendData, setBackendData] = useState(null);
@@ -57,22 +58,20 @@ const Home = () => {
     }
   };
 
-  const goToNextLevel = () => {
-    setSelectedImage((s) => backendData[level + 1]);
-    setLevel((l) => l + 1);
-    setTime((t) => 0);
-    setRunning(true);
-    modal.style.display = "none";
-  };
-
   return (
     <>
       <Header level={level} time={time} setTime={setTime} running={running} />
       <div>
         <img src={selectedImage.url} alt={selectedImage.name} onClick={findWaldo} />
-        <div className="modal">
-          <button onClick={goToNextLevel}>Continue</button>
-        </div>
+        <Modal
+          modal={modal}
+          backendData={backendData}
+          setSelectedImage={setSelectedImage}
+          level={level}
+          setLevel={setLevel}
+          setTime={setTime}
+          setRunning={setRunning}
+        />
       </div>
     </>
   );
