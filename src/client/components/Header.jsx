@@ -5,7 +5,7 @@ import "../stylesheets/Header.css";
 const Header = (props) => {
   useEffect(() => {
     let interval;
-    if (props.running) {
+    if (props.timerRunning) {
       interval = setInterval(() => {
         props.setTime((t) => t + 1);
       }, 1000);
@@ -16,7 +16,7 @@ const Header = (props) => {
     } else {
       clearInterval(interval);
     }
-  }, [props.running]);
+  }, [props.timerRunning]);
 
   return (
     <header>

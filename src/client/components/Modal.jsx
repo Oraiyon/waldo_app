@@ -6,7 +6,7 @@ const Modal = (props) => {
     props.setSelectedImage((s) => props.backendData[props.level + 1]);
     props.setLevel((l) => l + 1);
     props.setTime((t) => 0);
-    props.setRunning(true);
+    props.setTimerRunning(true);
     props.modal.style.display = "none";
     props.waldo.classList.toggle("inactive");
   };

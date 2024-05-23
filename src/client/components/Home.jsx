@@ -10,7 +10,8 @@ const Home = () => {
   const [level, setLevel] = useState(0);
   const [time, setTime] = useState(0);
   const [record, setRecord] = useState([]);
-  const [running, setRunning] = useState(true);
+  const [timerRunning, setTimerRunning] = useState(false);
+  const [startGame, setStartGame] = useState(false);
 
   const modal = document.querySelector(".modal");
   const waldo = document.querySelector(".waldo");
@@ -26,7 +27,7 @@ const Home = () => {
   }, []);
 
   if (!backendData || !backendData.length) {
-    return <p>No Images</p>;
+    return <p>Loading...</p>;
   }
 
   if (!selectedImage) {
@@ -52,7 +53,7 @@ const Home = () => {
       y <= selectedImage.coordinates[1][1]
     ) {
       setRecord((r) => [...r, time]);
-      setRunning(false);
+      setTimerRunning(false);
       modal.style.display = "flex";
       waldo.classList.toggle("inactive");
     } else {
@@ -60,30 +61,45 @@ const Home = () => {
     }
   };
 
-  return (
-    <>
-      <Header level={level} time={time} setTime={setTime} running={running} />
-      <div className="main">
-        <img
-          className="waldo"
-          src={selectedImage.url}
-          alt={selectedImage.name}
-          onClick={findWaldo}
-        />
-        <Modal
-          modal={modal}
-          waldo={waldo}
-          backendData={backendData}
-          setSelectedImage={setSelectedImage}
-          level={level}
-          setLevel={setLevel}
-          time={time}
-          setTime={setTime}
-          setRunning={setRunning}
-        />
-      </div>
-    </>
-  );
+  const start = () => {
+    setStartGame(true);
+    setTimerRunning(true);
+  };
+
+  if (startGame) {
+    return (
+      <>
+        <Header level={level} time={time} setTime={setTime} timerRunning={timerRunning} />
+        <div className="main">
+          <img
+            className="waldo"
+            src={selectedImage.url}
+            alt={selectedImage.name}
+            onClick={findWaldo}
+          />
+          <Modal
+            modal={modal}
+            waldo={waldo}
+            backendData={backendData}
+            setSelectedImage={setSelectedImage}
+            level={level}
+            setLevel={setLevel}
+            time={time}
+            setTime={setTime}
+            setTimerRunning={setTimerRunning}
+          />
+        </div>
+      </>
+    );
+  } else {
+    // Turn into component?
+    return (
+      <>
+        <h1>Where's Waldo?</h1>
+        <button onClick={start}>Start Game</button>
+      </>
+    );
+  }
 };
 
 export default Home;
