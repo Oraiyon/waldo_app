@@ -1,0 +1,11 @@
+.start_screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start_screen > img {
+  width: 250px;
+}
