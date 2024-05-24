@@ -1,6 +1,7 @@
 import TimeKeeper from "./TimeKeeper";
 import { useEffect } from "react";
 import "../stylesheets/Header.css";
+import LevelSelector from "./LevelSelector";
 
 const Header = (props) => {
   useEffect(() => {
@@ -20,7 +21,7 @@ const Header = (props) => {
 
   return (
     <header>
-      <h1>Level {props.level + 1}</h1>
+      <LevelSelector level={props.level} record={props.record} />
       <div>
         <p>Time: </p>
         <TimeKeeper time={props.time} />
