@@ -1,0 +1,12 @@
+.LevelSelector {
+  display: flex;
+  align-items: flex-end;
+}
+
+.level_hidden {
+  display: none;
+}
+
+.level {
+  display: block;
+}
