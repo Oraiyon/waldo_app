@@ -53,11 +53,11 @@ const Home = () => {
       x <= selectedImage.coordinates[1][0] &&
       y <= selectedImage.coordinates[1][1]
     ) {
-      setRecord((r) => [...r, time]);
       setTimerRunning(false);
       modal.style.display = "flex";
       waldo.classList.toggle("inactive");
     } else {
+      // Change?
       console.log(`${x}, ${y}`);
     }
   };
@@ -65,7 +65,13 @@ const Home = () => {
   if (startGame) {
     return (
       <>
-        <Header level={level} time={time} setTime={setTime} timerRunning={timerRunning} />
+        <Header
+          level={level}
+          time={time}
+          setTime={setTime}
+          timerRunning={timerRunning}
+          record={record}
+        />
         <div className="main">
           <img
             className="waldo"
@@ -81,6 +87,7 @@ const Home = () => {
             level={level}
             setLevel={setLevel}
             time={time}
+            setRecord={setRecord}
             setTime={setTime}
             setTimerRunning={setTimerRunning}
           />
