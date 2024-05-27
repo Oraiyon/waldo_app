@@ -82,6 +82,9 @@ const Home = () => {
           backendData={backendData}
           setSelectedImage={setSelectedImage}
           setLevel={setLevel}
+          modal={modal}
+          waldo={waldo}
+          setTimerRunning={setTimerRunning}
         />
         <div className="main">
           <img

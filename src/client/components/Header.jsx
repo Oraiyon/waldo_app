@@ -28,6 +28,10 @@ const Header = (props) => {
         backendData={props.backendData}
         setSelectedImage={props.setSelectedImage}
         setLevel={props.setLevel}
+        modal={props.modal}
+        waldo={props.waldo}
+        setTime={props.setTime}
+        setTimerRunning={props.setTimerRunning}
       />
       <div>
         <p>Time: </p>
