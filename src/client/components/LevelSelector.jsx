@@ -8,21 +8,36 @@ const LevelSelector = (props) => {
     setSelectLevel(!selectLevel);
   };
 
-  const Level = (props) => {
-    return <h2 className={selectLevel ? styles.level : styles.level_hidden}>Level {props.i}</h2>;
+  const changeLevel = (index) => {
+    console.log(index);
+    // props.setSelectedImage((s) => props.backendData[index]);
+    // props.setLevel((l) => index);
   };
 
   const DisplayLevels = () => {
-    if (props.record.length && selectLevel) {
-      for (let i = 0; i < props.record; i++) {
-        return <Level i={i + 1} />;
-      }
+    if (props.record.length > 1 && selectLevel) {
+      return props.record.map((r, index) => (
+        <h2
+          key={index}
+          onClick={
+            props.level + 1 === index + 1 ? activateLevelSelector : () => changeLevel(index + 1)
+          }
+          className={props.level + 1 === index + 1 ? styles.currentLevel : ""}
+        >
+          Level {index + 1}
+        </h2>
+      ));
+    } else {
+      return (
+        <h2 onClick={activateLevelSelector} className={styles.currentLevel}>
+          Level {props.level + 1}
+        </h2>
+      );
     }
   };
 
   return (
     <div className={styles.LevelSelector}>
-      <h2 onClick={activateLevelSelector}>Level {props.level + 1}</h2>
       <DisplayLevels />
     </div>
   );

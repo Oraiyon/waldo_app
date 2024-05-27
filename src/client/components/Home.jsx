@@ -78,6 +78,10 @@ const Home = () => {
           setTime={setTime}
           timerRunning={timerRunning}
           record={record}
+          //
+          backendData={backendData}
+          setSelectedImage={setSelectedImage}
+          setLevel={setLevel}
         />
         <div className="main">
           <img

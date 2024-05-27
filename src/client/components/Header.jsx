@@ -21,7 +21,14 @@ const Header = (props) => {
 
   return (
     <header>
-      <LevelSelector level={props.level} record={props.record} />
+      <LevelSelector
+        level={props.level}
+        record={props.record}
+        //
+        backendData={props.backendData}
+        setSelectedImage={props.setSelectedImage}
+        setLevel={props.setLevel}
+      />
       <div>
         <p>Time: </p>
         <TimeKeeper time={props.time} />

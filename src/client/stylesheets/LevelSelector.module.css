@@ -10,3 +10,7 @@
 .level {
   display: block;
 }
+
+.currentLevel {
+  color: red;
+}
