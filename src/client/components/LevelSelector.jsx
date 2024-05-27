@@ -5,7 +5,9 @@ const LevelSelector = (props) => {
   const [selectLevel, setSelectLevel] = useState(false);
 
   const activateLevelSelector = () => {
-    setSelectLevel(!selectLevel);
+    if (props.record.length > 1) {
+      setSelectLevel(!selectLevel);
+    }
   };
 
   const changeLevel = (index) => {

@@ -56,7 +56,9 @@ const Home = () => {
       setTimerRunning(false);
       setRecord((r) => {
         if (r.length) {
-          return [...r, time];
+          const newArray = record;
+          newArray[level] = time;
+          return newArray;
         } else {
           return [time];
         }
