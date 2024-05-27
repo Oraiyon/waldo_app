@@ -54,6 +54,13 @@ const Home = () => {
       y <= selectedImage.coordinates[1][1]
     ) {
       setTimerRunning(false);
+      setRecord((r) => {
+        if (r.length) {
+          return [...r, time];
+        } else {
+          return [time];
+        }
+      });
       modal.style.display = "flex";
       waldo.classList.toggle("inactive");
     } else {
@@ -87,7 +94,6 @@ const Home = () => {
             level={level}
             setLevel={setLevel}
             time={time}
-            setRecord={setRecord}
             setTime={setTime}
             setTimerRunning={setTimerRunning}
           />
