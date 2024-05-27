@@ -75,18 +75,17 @@ const Home = () => {
     return (
       <>
         <Header
+          backendData={backendData}
+          setSelectedImage={setSelectedImage}
           level={level}
+          setLevel={setLevel}
           time={time}
           setTime={setTime}
           timerRunning={timerRunning}
+          setTimerRunning={setTimerRunning}
           record={record}
-          //
-          backendData={backendData}
-          setSelectedImage={setSelectedImage}
-          setLevel={setLevel}
           modal={modal}
           waldo={waldo}
-          setTimerRunning={setTimerRunning}
         />
         <div className="main">
           <img
@@ -96,8 +95,6 @@ const Home = () => {
             onClick={findWaldo}
           />
           <Modal
-            modal={modal}
-            waldo={waldo}
             backendData={backendData}
             setSelectedImage={setSelectedImage}
             level={level}
@@ -105,6 +102,8 @@ const Home = () => {
             time={time}
             setTime={setTime}
             setTimerRunning={setTimerRunning}
+            modal={modal}
+            waldo={waldo}
           />
         </div>
       </>

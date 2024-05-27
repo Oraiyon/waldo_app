@@ -22,16 +22,15 @@ const Header = (props) => {
   return (
     <header>
       <LevelSelector
-        level={props.level}
-        record={props.record}
-        //
         backendData={props.backendData}
         setSelectedImage={props.setSelectedImage}
+        level={props.level}
         setLevel={props.setLevel}
-        modal={props.modal}
-        waldo={props.waldo}
         setTime={props.setTime}
         setTimerRunning={props.setTimerRunning}
+        record={props.record}
+        modal={props.modal}
+        waldo={props.waldo}
       />
       <div>
         <p>Time: </p>
