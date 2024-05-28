@@ -11,11 +11,18 @@ const Modal = (props) => {
     props.waldo.classList.toggle("inactive");
   };
 
+  const GoToEnd = () => {
+    if (props.newGamePlus) {
+      return <button onClick={() => props.setSelectedImage(null)}>Scoreboard</button>;
+    }
+  };
+
   return (
     <div className="modal">
       <h2>You Found Waldo!</h2>
       <ScoreBoard record={props.record} />
       <button onClick={goToNextLevel}>Next Level</button>
+      <GoToEnd />
     </div>
   );
 };

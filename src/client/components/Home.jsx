@@ -107,6 +107,7 @@ const Home = () => {
             record={record}
             modal={modal}
             waldo={waldo}
+            newGamePlus={newGamePlus}
           />
         </div>
       </>
