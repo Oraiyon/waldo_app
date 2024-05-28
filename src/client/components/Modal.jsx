@@ -21,8 +21,10 @@ const Modal = (props) => {
     <div className="modal">
       <h2>You Found Waldo!</h2>
       <ScoreBoard record={props.record} />
-      <button onClick={goToNextLevel}>Next Level</button>
-      <GoToEnd />
+      <div className="modal_buttons">
+        <button onClick={goToNextLevel}>Next Level</button>
+        <GoToEnd />
+      </div>
     </div>
   );
 };
