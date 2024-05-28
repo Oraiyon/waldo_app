@@ -104,6 +104,7 @@ const Home = () => {
             time={time}
             setTime={setTime}
             setTimerRunning={setTimerRunning}
+            record={record}
             modal={modal}
             waldo={waldo}
           />

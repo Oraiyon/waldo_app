@@ -11,8 +11,3 @@
   padding: 16px;
   border-radius: 6px;
 }
-
-.modal > div {
-  display: flex;
-  gap: 4px;
-}

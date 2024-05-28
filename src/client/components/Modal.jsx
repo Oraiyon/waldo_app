@@ -1,4 +1,4 @@
-import TimeKeeper from "./TimeKeeper";
+import ScoreBoard from "./Scoreboard";
 import "../stylesheets/Modal.css";
 
 const Modal = (props) => {
@@ -14,10 +14,7 @@ const Modal = (props) => {
   return (
     <div className="modal">
       <h2>You Found Waldo!</h2>
-      <div>
-        <p>Time: </p>
-        <TimeKeeper time={props.time} />
-      </div>
+      <ScoreBoard record={props.record} />
       <button onClick={goToNextLevel}>Next Level</button>
     </div>
   );
