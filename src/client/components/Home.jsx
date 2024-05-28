@@ -13,6 +13,7 @@ const Home = () => {
   const [record, setRecord] = useState([]);
   const [timerRunning, setTimerRunning] = useState(false);
   const [startGame, setStartGame] = useState(false);
+  const [newGamePlus, setNewGamePlus] = useState(false);
 
   const modal = document.querySelector(".modal");
   const waldo = document.querySelector(".waldo");
@@ -38,7 +39,7 @@ const Home = () => {
         setSelectedImage={setSelectedImage}
         setLevel={setLevel}
         record={record}
-        setRecord={setRecord}
+        setNewGamePlus={setNewGamePlus}
       />
     );
   }
@@ -86,6 +87,7 @@ const Home = () => {
           record={record}
           modal={modal}
           waldo={waldo}
+          newGamePlus={newGamePlus}
         />
         <div className="main">
           <img

@@ -31,6 +31,7 @@ const Header = (props) => {
         record={props.record}
         modal={props.modal}
         waldo={props.waldo}
+        newGamePlus={props.newGamePlus}
       />
       <div>
         <p>Time: </p>

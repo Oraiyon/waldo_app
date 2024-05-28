@@ -4,12 +4,6 @@ import styles from "../stylesheets/LevelSelector.module.css";
 const LevelSelector = (props) => {
   const [selectLevel, setSelectLevel] = useState(false);
 
-  const activateLevelSelector = () => {
-    if (props.record.length > 1) {
-      setSelectLevel(!selectLevel);
-    }
-  };
-
   const changeLevel = (index) => {
     props.modal.style.display = "none";
     props.waldo.classList.remove("inactive");
@@ -21,11 +15,15 @@ const LevelSelector = (props) => {
   };
 
   const DisplayLevels = () => {
-    if (props.record.length > 1 && selectLevel) {
+    if (props.newGamePlus && selectLevel) {
       return props.record.map((r, index) => (
         <h2
           key={index}
-          onClick={props.level + 1 === index + 1 ? activateLevelSelector : () => changeLevel(index)}
+          onClick={
+            props.level + 1 === index + 1
+              ? () => setSelectLevel(!selectLevel)
+              : () => changeLevel(index)
+          }
           className={props.level + 1 === index + 1 ? styles.currentLevel : ""}
         >
           Level {index + 1}
@@ -33,7 +31,7 @@ const LevelSelector = (props) => {
       ));
     } else {
       return (
-        <h2 onClick={activateLevelSelector} className={styles.currentLevel}>
+        <h2 onClick={() => setSelectLevel(!selectLevel)} className={styles.currentLevel}>
           Level {props.level + 1}
         </h2>
       );
