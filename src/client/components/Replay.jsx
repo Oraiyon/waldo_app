@@ -10,9 +10,11 @@ const Replay = (props) => {
 
   return (
     <div className="replay">
-      <h1>Congratulations!</h1>
-      <button onClick={replayGame}>Play Again?</button>
+      <h1>New Game+ unlocked!</h1>
+      <p>New Game+ allows you to select specific levels and improve your level times.</p>
+      <p>To select a level, click on your current level.</p>
       <ScoreBoard record={props.record} />
+      <button onClick={replayGame}>Enter New Game+</button>
     </div>
   );
 };
