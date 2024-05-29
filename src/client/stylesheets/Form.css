@@ -18,3 +18,7 @@ input[type="text"] {
 input[name="name"] {
   min-width: 170px;
 }
+
+img {
+  width: 100%;
+}
