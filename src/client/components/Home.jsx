@@ -66,9 +66,6 @@ const Home = () => {
       });
       modal.style.display = "flex";
       waldo.classList.toggle("inactive");
-    } else {
-      // Change?
-      console.log(`${x}, ${y}`);
     }
   };
 
